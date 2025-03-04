@@ -124,6 +124,10 @@
   line-height: 22.4px;
 }
 
+.h3-text-24px {
+  font-size: 24px !important;
+}
+
 .ig-block {
   background-color: #E8E8ED;
   border-radius: 20px;
@@ -134,4 +138,101 @@
 .carousel-inner {
   max-width: 992px;
   margin: 0 auto;
+}
+
+.carousel-control-next, .carousel-control-prev {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  background: none;
+  border: 0;
+  opacity: 1;
+}
+
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 20px 16px;
+  background-color: #32CD7A;
+  border-radius: 50%;
+}
+
+.carousel-control-prev-icon {
+  background-image: url(@/assets/img/arrow_left.svg);
+}
+
+.carousel-control-next-icon {
+  background-image: url(@/assets/img/arrow_right.svg);
+}
+
+.carousel-indicators {
+  bottom: -2rem;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  background-color: #32CD7A;
+  border-radius: 50%;
+  opacity: .2;
+}
+
+.carousel-indicators .active {
+  opacity: 1 !important;
+}
+
+.topic-block {
+  max-height: 90px;
+  height: 100%;
+  padding-left: 0;
+  border-radius: 90px;
+  border: 1px solid #3E468F;
+}
+
+.topic-block-icon {
+  position: relative;
+  left: 0;
+  top: 0;
+  max-width: 89px;
+  height: 88px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 75px;
+  background-color: #3E468F;
+  border-radius: 50%;
+}
+
+.relationships-intelligence-icon {
+  background-image: url(@/assets/img/topics_icons/relationships_icon.svg);
+}
+
+.skills-development-icon {
+  background-image: url(@/assets/img/topics_icons/skills_development_icon.svg);
+}
+
+.growth-mindset-icon {
+  background-image: url(@/assets/img/topics_icons/growth_mindset_icon.svg);
+}
+
+.emotional-intelligence-icon {
+  background-image: url(@/assets/img/topics_icons/emotional_intelligence_icon.svg);
+}
+
+.self-esteem-and-confidence-icon {
+  background-image: url(@/assets/img/topics_icons/self-esteem_and_confidence_icon.svg);
 }
