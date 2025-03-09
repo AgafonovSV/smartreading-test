@@ -38,6 +38,8 @@ services:
             MYSQL_ROOT_PASSWORD: root
             SERVICE_TAGS: dev
             SERVICE_NAME: mysql
+        command:
+            --sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION    
         networks: 
             - laravel
 
@@ -45,6 +47,9 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
+            args:
+                UID: 1000
+                GID: 1000
         container_name: php
         restart: unless-stopped
         tty: true

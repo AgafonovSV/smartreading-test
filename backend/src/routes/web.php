@@ -1,26 +1,26 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 use App\Models\Group;
+use App\Models\User;
+use App\Http\Controllers\GroupController;
 
+
+Route::get('/group/sql', [GroupController::class, 'showSql']);
 
 Route::get("/", function () {
 
-    $childGroupArr = [];
-    $groups = Group::all()->toArray(); 
-    $parentsArr = array_values(array_unique(array_column($groups, 'parent_id')));
-
-    foreach ($groups as $group) {
-        if(! in_array($group['id'], $parentsArr)) {
-            $childGroupArr[] = [
-                'id' => $group['id'],
-                'name' => $group['name'],
-                'parent_id' => $group['parent_id']
-            ];            
-        }
+    $groups = Group::find(1);
+    
+    foreach ($groups->users as $user) {
+        echo '<pre>';
+        print_r($user->name);
     }
 
     echo '<pre>';
-    print_r($childGroupArr);
+    //print_r($groups);
+    //print_r($groups);
+
 
 });
