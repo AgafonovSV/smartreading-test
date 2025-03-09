@@ -72,17 +72,14 @@ class GroupController extends Controller
         )
         ->groupBy('groups.id')
         ->get()->toArray();
-        
-        //echo '<pre>';
-        //print_r($this->makeTree($this->objectToArray($groups)));
 
         return view('groups', [
             'groupsArr' => $this->makeTree($this->objectToArray($groups))
         ]);
-
     }
 
-    public function makeTree($items, $root = null) {
+    public function makeTree($items, $root = null): array 
+    {
 
         $nitems = [];
 

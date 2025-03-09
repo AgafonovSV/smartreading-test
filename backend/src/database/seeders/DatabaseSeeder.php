@@ -23,19 +23,16 @@ class DatabaseSeeder extends Seeder
         DB::table('groups')->insert([
             ['id' => 1, 'name' => 'Group_1', 'parent_id' => null, 'created_at' => $createdDate],
             ['id' => 2, 'name' => 'Group_2', 'parent_id' => null, 'created_at' => $createdDate],
-
             ['id' => 3, 'name' => 'Group_3', 'parent_id' => null, 'created_at' => $createdDate],
             ['id' => 4, 'name' => 'Group_4', 'parent_id' => null, 'created_at' => $createdDate],
             ['id' => 5, 'name' => 'Group_5', 'parent_id' => null, 'created_at' => $createdDate],
             ['id' => 6, 'name' => 'Group_6', 'parent_id' => null, 'created_at' => $createdDate],
             ['id' => 7, 'name' => 'Group_7', 'parent_id' => null, 'created_at' => $createdDate],
-
             ['id' => 8, 'name' => 'Group_8', 'parent_id' => null, 'created_at' => $createdDate],
             ['id' => 9, 'name' => 'Group_9', 'parent_id' => null, 'created_at' => $createdDate],
             ['id' => 10, 'name' => 'Group_10', 'parent_id' => null, 'created_at' => $createdDate],
             ['id' => 11, 'name' => 'Group_11', 'parent_id' =>null, 'created_at' => $createdDate],
             ['id' => 12, 'name' => 'Group_12', 'parent_id' => null, 'created_at' => $createdDate],
-
             ['id' => 13, 'name' => 'Group_3_1', 'parent_id' => 3, 'created_at' => $createdDate],
             ['id' => 14, 'name' => 'Group_4_1', 'parent_id' => 4, 'created_at' => $createdDate],
             ['id' => 15, 'name' => 'Group_5_1', 'parent_id' => 5, 'created_at' => $createdDate],
