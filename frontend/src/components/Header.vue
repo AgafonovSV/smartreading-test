@@ -21,7 +21,7 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarCollapse">
-					<ul class="nav nav-fill poppins-medium w-100">
+					<ul class="nav nav-fill flex-column flex-md-row poppins-medium w-100 py-4 py-md-0">
 						<li class="nav-item">
 							<a class="nav-link" aria-current="page" href="#">Products</a>
 						</li>
