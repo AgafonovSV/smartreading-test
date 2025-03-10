@@ -4,8 +4,10 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install && npm install -g npm@latest
+RUN npm install
+
+RUN npm run build
 
 EXPOSE 5173
-
-CMD ["npm", "run", "dev"]
+# or: npm run dev (if development)
+CMD ["npm", "run", "preview"]
