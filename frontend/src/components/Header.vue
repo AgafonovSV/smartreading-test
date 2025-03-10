@@ -10,6 +10,12 @@
 				<a class="navbar-brand" href="#">
 					<SiteLogo></SiteLogo>
 				</a>
+				<div class="d-block d-md-none flex-grow-1">
+					<div class="d-inline-block position-relative float-end" style="right: 26px;">
+						<span class="position-absolute translate-middle badge rounded-pill buy-badge">0</span>
+						<Buy></Buy>
+					</div>
+				</div>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
 					aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -33,17 +39,11 @@
 						</li>
 					</ul>
 				</div>
-				<div>
-					<ul class="nav nav-fill poppins-medium w-100">
-						<li class="nav-item">
-							<a class="nav-link" href="#">
-								<div class="d-inline-block position-relative">
-									<span class="position-absolute translate-middle badge rounded-pill buy-badge">0</span>
-									<Buy></Buy>
-								</div>
-							</a>
-						</li>
-					</ul>
+				<div class="d-none d-md-block">
+					<div class="d-inline-block position-relative">
+						<span class="position-absolute translate-middle badge rounded-pill buy-badge">0</span>
+						<Buy></Buy>
+					</div>
 				</div>
 			</div>
 		</nav>

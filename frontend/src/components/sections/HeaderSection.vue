@@ -29,6 +29,20 @@
             <div class="block-a3 d-none d-md-flex align-items-center">
               <div class="block-a-text">Ready-to-use materials for SEL classes</div>
             </div>
+
+            <div class="d-flex d-md-none align-items-center">
+              <div class="block-a-text-mob text-start pt-4 pb-2">Engaging activities for classroom and<br> home use</div>
+            </div>
+            <div class="d-flex d-md-none align-items-center">
+              <div class="block-a-text-mob text-start py-2">Comprehensive guidelines for educators</div>
+            </div>
+            <div class="d-flex d-md-none align-items-center">
+              <div class="block-a-text-mob text-start py-2">Ready-to-use materials for SEL classes</div>
+            </div>
+
+            <div class="pt-4 d-block d-md-none">
+              <a href="#" class="btn btn-success btn-show-all-kits poppins-bold p-3 fw-bold w-100" role="button" data-bs-toggle="button">Show all kits</a>
+            </div>
           </div>
         </div>
       </div>
