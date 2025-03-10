@@ -30,7 +30,7 @@
     },
     methods: {
       loadImages() {
-        fetch("./src/assets/files/images.json", {
+        fetch("/files/images.json", {
           method: 'GET',
           headers: {
             Accept: 'application/json',
