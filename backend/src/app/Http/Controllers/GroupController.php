@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Group;
-use App\Models\User;
 use Illuminate\View\View;
 
 class GroupController extends Controller
@@ -21,53 +18,56 @@ class GroupController extends Controller
             'group_user.group_id as group_user_group_id', 
             'groups.name as group_name', 
             'groups.parent_id as group_parent_id',
-            DB::raw('CONCAT_WS("", 
-                        IF(group_user.group_id IS NULL,
-                            (SELECT CONCAT("[",
-                                    GROUP_CONCAT((
-                                        SELECT GROUP_CONCAT(
-                                            JSON_OBJECT(
-                                                "id", u1.id,
-                                                "name", u1.name
-                                            )
-                                        ) 
-                                        FROM group_user 
-                                        INNER JOIN users u1 ON u1.id = group_user.user_id
-                                        WHERE group_user.group_id = g.id
-                                    )),
-                                "]") 
-                            FROM `groups` as g
-                            WHERE g.parent_id = groups.id
-                        ),
-                        NULL
-                    ),
-                        IF(group_user.group_id IS NULL and groups.parent_id IS NULL,
-                            (SELECT CONCAT("[",
-                                    GROUP_CONCAT((
-                                        SELECT GROUP_CONCAT(
-                                            JSON_OBJECT(
-                                                "id", u2.id,
-                                                "name", u2.name
-                                            )
-                                        ) 
-                                        FROM group_user 
-                                        LEFT JOIN users u2 ON u2.id = group_user.user_id
-                                        WHERE group_user.group_id = g3.id
-                                    )),
-                                "]") 
-                            FROM `groups` g 
-                            LEFT JOIN `groups` g3 ON g3.parent_id = g.id 
-                            WHERE g.parent_id = groups.id
-                        ),
-                        CONCAT("[",
-                            GROUP_CONCAT(
-                                JSON_OBJECT(
-                                    "id", users.id,
-                                    "name", users.name
+            DB::raw('
+                concat_ws("", 
+                    IF(isnull(group_user.group_id), 
+                        (select 
+                            concat("[", 
+                                group_concat(( 
+                                    select group_concat(
+                                        json_object( 
+                                            "id", u1.id, 
+                                            "name", u1.name 
+                                        )
+                                    ) 
+                                    from group_user 
+                                    left join users u1 ON u1.id = group_user.user_id 
+                                    where group_user.group_id = g.id 
+                                )), 
+                            "]") 
+                            from `groups` as g 
+                            where g.parent_id = groups.id
+                        ), 
+                        concat("[", 
+                            group_concat(
+                                json_object( 
+                                    "id", users.id, 
+                                    "name", users.name 
                                 )
-                            ),
-                        "]")
-                    )) as users
+                            ), 
+                        "]") 
+                    ), 
+                    IF(isnull(group_user.group_id) or isnull(groups.parent_id), 
+                        (select 
+                            concat("[", 
+                                group_concat(( 
+                                    select group_concat(
+                                        json_object(
+                                            "id", u2.id, 
+                                            "name", u2.name
+                                        )
+                                    ) 
+                                    from group_user 
+                                    left join users u2 ON u2.id = group_user.user_id 
+                                    where group_user.group_id = g3.id 
+                                )), 
+                            "]") 
+                            from `groups` g 
+                            left join `groups` g3 ON g3.parent_id = g.id 
+                            where g.parent_id = groups.id 
+                        ), null
+                    )
+                ) as users 
             ')
         )
         ->groupBy('groups.id')
@@ -80,16 +80,21 @@ class GroupController extends Controller
 
     public function makeTree($items, $root = null): array 
     {
-
         $nitems = [];
 
-        foreach($items as $ki => $item) {
+        foreach ($items as $ki => $item) {
 
-            $item['users'] = is_string($item['users']) ? json_decode(str_replace('[{"id": null, "name": null}]', '', $item['users']), true) : $item['users'];
+            if (is_string($item['users']) ) {
+                $users =  json_decode($item['users'], true);
+            } else {
+                $users = $item['users'];
+            } 
+            
+            $item['users'] = array_unique($users, SORT_REGULAR);
 
             $ki++;
 
-            if($item['group_parent_id'] == $root && $ki != $item['group_parent_id']) {
+            if ($item['group_parent_id'] == $root && $ki != $item['group_parent_id']) {
                 unset($items[$ki]);
                 $children = $this->makeTree($items, $ki);
                 $nitems[$ki] = $item + ['children' => !empty($children) ? $children : null];

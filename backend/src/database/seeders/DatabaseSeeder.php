@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(30)->create();
+        User::factory(10)->create();
 
         $createdDate = Carbon::now()->format('Y-m-d H:i:s');
 
