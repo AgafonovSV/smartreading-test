@@ -26,7 +26,7 @@
 							<a class="nav-link" aria-current="page" href="#">Products</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">About Ivi Green</a>
+							<a class="nav-link" href="#ivi-green">About Ivi Green</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">FAQ</a>

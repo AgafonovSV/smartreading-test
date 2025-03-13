@@ -1,10 +1,10 @@
 <script setup>
-	import CarouselIviGreen from '@/components/blocks/CarouselIviGreen.vue'
-  import TheMostTopics from '@/components/blocks/TheMostTopics.vue'
+	import CarouselIviGreen from '@/components/blocks/CarouselIviGreenBlock.vue'
+  import TheMostTopics from '@/components/blocks/TheMostTopicsBlock.vue'
 </script>
 
 <template>
-  <section class="ivi-green-section bg-white pt-md-5">
+  <section class="ivi-green-section bg-white pt-md-5" id="ivi-green">
     <div class="container py-5 py-md-0 px-3 px-md-0 pt-md-5">
       <div>
         <h2 class="poppins-bold h2-text text-uppercase tc-2C2C2C text-center pb-3 pb-md-0">
