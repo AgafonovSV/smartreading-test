@@ -4,8 +4,8 @@
       <div class="row g-0 pt-md-3 px-0 align-items-center align-items-stretch">
         <div class="col-12 col-md-6 px-0 align-self-center">
           <div>
-            <h2 class="poppins-bold h2-text text-uppercase text-white">
-              Social-Emotional<br> Learning Toolkits and<br> Soft Skills for<br> Educators
+            <h2 class="poppins-bold h2-text text-uppercase text-white pe-md-5">
+              Social-Emotional Learning Toolkits and Soft Skills for Educators
             </h2>
           </div>
           <div>
